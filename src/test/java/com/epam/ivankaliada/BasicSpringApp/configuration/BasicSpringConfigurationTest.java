@@ -10,8 +10,8 @@ import org.springframework.test.context.ActiveProfiles;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-@SpringBootTest
 @ActiveProfiles("dev")
+@SpringBootTest
 public class BasicSpringConfigurationTest {
 
     @Autowired

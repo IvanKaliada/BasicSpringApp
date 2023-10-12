@@ -11,7 +11,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 @ActiveProfiles("dev")
 @SpringBootTest
@@ -26,6 +25,7 @@ public class EmployeeServiceImplTest {
 
     @Test
     void shouldGetAllDbConfigurations() throws ParseException {
+        //given
         Employee employee = new Employee();
         employee.setName("John");
         employee.setLastName("Smith");
@@ -33,9 +33,10 @@ public class EmployeeServiceImplTest {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String dateOfBirth = "11/05/1999";
         employee.setDateOfBirth(simpleDateFormat.parse(dateOfBirth));
+        //when
         employeeRepository.save(employee);
-        List<Employee> allEmployees = employeeService.getAllEmployees();
-        Assertions.assertFalse(allEmployees.isEmpty());
+        //then
+        Assertions.assertFalse(employeeService.getAllEmployees().isEmpty());
     }
 
 }
